@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "NG Word Search Blocker",
+  "version": "0.1.0",
+  "description": "特定のNGワードを含む検索クエリをブロックするChrome拡張機能",
+  "action": {
+    "default_title": "NG Blocker"
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "*://*.google.com/*",
+    "*://*.google.co.jp/*",
+    "*://*.google.co.uk/*",
+    "*://*.google.de/*",
+    "*://*.google.fr/*",
+    "*://*.bing.com/*", 
+    "*://duckduckgo.com/*",
+    "*://search.yahoo.co.jp/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.google.com/*",
+        "*://*.google.co.jp/*",
+        "*://*.google.co.uk/*",
+        "*://*.google.de/*",
+        "*://*.google.fr/*",
+        "*://*.bing.com/*",
+        "*://duckduckgo.com/*",
+        "*://search.yahoo.co.jp/*"
+      ],
+      "js": ["lib/normalize.js", "content/unified-script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": []
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png", 
+    "128": "icons/icon128.png"
+  }
+}

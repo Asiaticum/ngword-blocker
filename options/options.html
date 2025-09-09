@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGワードブロッカー設定</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+
+    <h1>NGワードブロッカー設定</h1>
+
+    <!-- NGワード管理セクション -->
+    <section id="ng-words-section">
+        <h2>NGワード管理</h2>
+
+        <!-- NGワードリスト -->
+        <div class="card">
+            <h3>登録済みNGワード</h3>
+            <ul id="ng-word-list">
+                <!-- JavaScriptによって動的に生成されます -->
+                <!-- 例: <li><span>サンプル</span><button class="delete-btn">削除</button></li> -->
+            </ul>
+        </div>
+
+        <!-- 一括編集エリア -->
+        <div class="card">
+            <h3>NGワードの一括編集</h3>
+            <p>1行に1つの単語を入力してください。</p>
+            <textarea id="ng-word-textarea" rows="10" placeholder="ここに入力..."></textarea>
+            <button id="save-ng-words-btn" class="primary-btn">リストを更新</button>
+        </div>
+
+        <!-- インポート/エクスポート -->
+        <div class="card">
+            <h3>インポート / エクスポート</h3>
+            <p>設定をJSONファイルとして保存、または読み込みます。</p>
+            <div class="button-group">
+                <button id="import-json-btn">JSONインポート</button>
+                <button id="export-json-btn">JSONエクスポート</button>
+                <input type="file" id="json-import-file" accept=".json" style="display: none;">
+            </div>
+        </div>
+    </section>
+
+    <!-- 設定セクション -->
+    <section id="settings-section">
+        <h2>拡張機能の設定</h2>
+        <div class="card">
+            <div class="setting-item">
+                <input type="checkbox" id="regex-mode">
+                <label for="regex-mode">正規表現モードを有効にする</label>
+            </div>
+            <div class="setting-item">
+                <input type="checkbox" id="word-boundary">
+                <label for="word-boundary">英語のみ語境界を適用 (正規表現モード時)</label>
+            </div>
+            <div class="setting-item">
+                <input type="checkbox" id="show-badge">
+                <label for="show-badge">バッジにNGワード検出数を表示する</label>
+            </div>
+        </div>
+    </section>
+
+    <!-- 一時解除セクション -->
+    <section id="temp-disable-section">
+        <h2>一時的に機能を無効化</h2>
+        <div class="card">
+            <p>指定した時間、NGワードのブロック機能を無効にします。</p>
+            <fieldset>
+                <legend>無効化する時間を選択</legend>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="disable-5min" name="disable-duration" value="5">
+                        <label for="disable-5min">5分</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="disable-10min" name="disable-duration" value="10">
+                        <label for="disable-10min">10分</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="disable-30min" name="disable-duration" value="30">
+                        <label for="disable-30min">30分</label>
+                    </div>
+                </div>
+            </fieldset>
+            <button id="temp-disable-btn" class="primary-btn">無効化を開始</button>
+            <p class="status-text">現在の状態: <span id="disable-status-text">有効</span></p>
+        </div>
+    </section>
+
+    <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+/* options.css - NGワードブロッカー設定ページ */
+
+/* 基本スタイル */
+body {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  color: #1a73e8;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+h2 {
+  color: #5f6368;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e8eaed;
+  padding-bottom: 8px;
+}
+
+h3 {
+  color: #3c4043;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+/* カードレイアウト */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid #e8eaed;
+}
+
+/* NGワードリスト */
+#ng-word-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #e8eaed;
+  border-radius: 4px;
+  background-color: #fafafa;
+}
+
+#ng-word-list:empty::after {
+  content: "NGワードが登録されていません";
+  display: block;
+  padding: 20px;
+  text-align: center;
+  color: #5f6368;
+  font-style: italic;
+}
+
+#ng-word-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e8eaed;
+  background-color: #fff;
+  margin: 1px;
+}
+
+#ng-word-list li:last-child {
+  border-bottom: none;
+}
+
+#ng-word-list li:hover {
+  background-color: #f8f9fa;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ea4335;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #fce8e6;
+}
+
+.delete-btn:focus {
+  outline: 2px solid #ea4335;
+  outline-offset: 2px;
+}
+
+/* テキストエリア */
+#ng-word-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+  resize: vertical;
+}
+
+#ng-word-textarea:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+/* ボタン */
+button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: #1557b0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  background-color: #1142b3;
+}
+
+button:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+.primary-btn {
+  background-color: #1a73e8;
+  padding: 10px 20px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* 設定項目 */
+.setting-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 8px 0;
+}
+
+.setting-item input[type="checkbox"] {
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
+  accent-color: #1a73e8;
+}
+
+.setting-item label {
+  cursor: pointer;
+  font-size: 14px;
+  color: #3c4043;
+}
+
+.setting-item input[type="checkbox"]:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+/* ラジオボタングループ */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+}
+
+.radio-item input[type="radio"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  accent-color: #1a73e8;
+}
+
+.radio-item label {
+  cursor: pointer;
+  font-size: 14px;
+  color: #3c4043;
+}
+
+.radio-item input[type="radio"]:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+/* フィールドセット */
+fieldset {
+  border: 1px solid #e8eaed;
+  border-radius: 4px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+fieldset legend {
+  padding: 0 8px;
+  font-weight: 500;
+  color: #5f6368;
+}
+
+/* ステータステキスト */
+.status-text {
+  font-size: 14px;
+  color: #5f6368;
+  margin-top: 16px;
+}
+
+#disable-status-text {
+  font-weight: 500;
+  color: #1a73e8;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* フォーカスのアクセシビリティ改善 */
+*:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+button:focus,
+input:focus,
+textarea:focus {
+  outline-offset: 1px;
+}
+
+/* ダークモード対応（将来対応） */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #202124;
+    color: #e8eaed;
+  }
+
+  .card {
+    background-color: #303134;
+    border-color: #5f6368;
+  }
+
+  h1, h2, h3 {
+    color: #e8eaed;
+  }
+
+  #ng-word-list {
+    background-color: #303134;
+    border-color: #5f6368;
+  }
+
+  #ng-word-list li {
+    background-color: #303134;
+    border-color: #5f6368;
+  }
+
+  #ng-word-list li:hover {
+    background-color: #3c4043;
+  }
+
+  #ng-word-textarea {
+    background-color: #303134;
+    color: #e8eaed;
+    border-color: #5f6368;
+  }
+
+  fieldset {
+    border-color: #5f6368;
+  }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>検索をブロックしました</title>
+    <style>
+      :root {
+        --color-background: #f0f2f5;
+        --color-text: #202124;
+        --color-primary: #1a73e8;
+        --color-secondary: #5f6368;
+        --color-card-background: #ffffff;
+        --color-border: #dadce0;
+        --font-family: "Segoe UI", "Meiryo", sans-serif;
+      }
+      body {
+        font-family: var(--font-family);
+        background-color: var(--color-background);
+        color: var(--color-text);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        text-align: center;
+      }
+      .container {
+        background-color: var(--color-card-background);
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3),
+          0 4px 8px 3px rgba(60, 64, 67, 0.15);
+        padding: 32px 40px;
+        max-width: 500px;
+        width: 90%;
+      }
+      h1 {
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      h1 .icon {
+        font-size: 28px;
+        margin-right: 12px;
+      }
+      .result-item {
+        margin-bottom: 16px;
+        text-align: left;
+        font-size: 14px;
+      }
+      .result-item .label {
+        font-weight: 500;
+        color: var(--color-secondary);
+        display: inline-block;
+        width: 140px;
+      }
+      .result-item .value {
+        font-weight: 600;
+        color: var(--color-text);
+      }
+      #ngword {
+        color: #d93025;
+        font-weight: bold;
+      }
+      .actions {
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .button {
+        font-family: var(--font-family);
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 24px;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: background-color 0.2s, box-shadow 0.2s;
+        text-align: center;
+        text-decoration: none;
+      }
+      .button-primary {
+        background-color: var(--color-primary);
+        color: white;
+        border-color: var(--color-primary);
+      }
+      .button-primary:hover {
+        background-color: #2b7de9;
+        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+          0 1px 3px 1px rgba(60, 64, 67, 0.15);
+      }
+      .button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1><span class="icon">🚫</span>検索をブロックしました</h1>
+
+      <div class="results">
+        <div class="result-item">
+          <span class="label">該当するNGワード:</span>
+          <span class="value" id="ngword"></span>
+        </div>
+        <div class="result-item">
+          <span class="label">検索サイト:</span>
+          <span class="value" id="engine"></span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="edit-settings" class="button button-primary">
+          NGワード設定を編集
+        </button>
+      </div>
+    </div>
+
+    <script src="block.js"></script>
+  </body>
+</html>
